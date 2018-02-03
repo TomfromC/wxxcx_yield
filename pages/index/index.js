@@ -33,7 +33,7 @@ Page({
           wx.showLoading({
             title: '加载中...',
           })
-          var result = yield myAsyncFunc();
+          var result = yield myAsyncFunc('haohaitao', 18);
           console.log(result.data);
           var result2 = yield myAsyncFunc2();
           console.log(result2.data);
@@ -53,29 +53,27 @@ Page({
 /**
  * 使用promise构建方法,co依赖promise
  */
-function myAsyncFunc() {
-  return new Promise(function (resolve, reject) {
+var myAsyncFunc = (username, age) => {
+  return new Promise((resolve, reject) => {
     //模拟接口调用所使用的时长
-    setTimeout(function () {
-      console.log("myAsyncFunction done!");
+    setTimeout(() => {
       resolve({
-        data: "Hello,World-1"
+        data: username + "," + age
       })
-    }, 500);
+    }, 500)
   });
 }
+
 
 /**
  * 使用promise构建方法,co依赖promise
  */
-function myAsyncFunc2() {
-  return new Promise(function (resolve, reject) {
-    //模拟接口调用所使用的时长
-    setTimeout(function () {
-      console.log("myAsyncFunction2 done!");
+var myAsyncFunc2 = () => {
+  return new Promise((resolve, reject) =>{
+    setTimeout(() =>{
       resolve({
-        data: "Hello,World-2"
+        data: 'hello world'
       })
-    }, 500);
-  });
+    })
+  }, 500)
 }
