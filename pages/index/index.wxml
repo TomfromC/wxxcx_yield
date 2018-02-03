@@ -1,0 +1,11 @@
+<!--index.wxml-->
+<view class="container">
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="">
+    <view>第一个执行的：{{yieldData.firstData}}</view>
+    <view>第二个执行的：{{yieldData.secondData}}</view>
+  </view>
+</view>
